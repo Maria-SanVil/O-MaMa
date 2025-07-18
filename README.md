@@ -84,7 +84,7 @@ Masks_TRAIN_EXO2EGO/c8b9dc5b-8467-40d2-ab27-27923abcb054/aria01_214-1/6240_masks
 
 We provide a checkpoint for the Exo➝Ego correspondence:
 You can train the model or perform inference from it:
-- [Exo➝Ego weights](https://drive.google.com/drive/folders/12MkLcHgF6-NCUe6EwjEEC5imAdIfwQtR?usp=sharing)
+- [Exo➝Ego weights](https://drive.google.com/file/d/1EwFs5TXwGaJR7nkt_ldmotHAP9UqvLAU/view?usp=sharing)
 
 
 ## Installation
