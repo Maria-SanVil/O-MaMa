@@ -1,7 +1,7 @@
-# O-MaMa
+# O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views (ICCV 2025)
 
 ## ✨✨ Accepted in ICCV 2025!! ✨✨
-## 🏆 1st Place Winner in the Ego-Exo4D Correspondence Challenge at the Secnod Joint Egocentric Vision (EgoVis) Workshop @ CVPR 2025!! 🏆
+## 🏆 1st Place Winner in the Ego-Exo4D Correspondence Challenge at the Second Joint Egocentric Vision (EgoVis) Workshop @ CVPR 2025!! 🏆
 
 
 ## About
@@ -18,14 +18,14 @@ Understanding the world from multiple perspectives is essential for intelligent 
 
 ## 📝 TODO
 
-- [ ] Add link to published paper and update the citation
+- [ ] Add link to published paper
 
 ## 📁 Dataset
 
 Download Ego-Exo4D following the instructions from their [official repository](https://github.com/facebookresearch/Ego4d/blob/main/ego4d/egoexo/download/README.md). Select the correspondence benchmark and the official v2 split.
 
 After downloading the raw data, follow the data preparation steps provided in the [official baselines repository](https://github.com/EGO4D/ego-exo4d-relation/tree/main/correspondence/SegSwap).  
-Save the processed data from `process_data.py` in the `processed/` directory inside the datataset directory. Place the JSON output from `create_pairs.py` into the `dataset_jsons/` folder.
+Save the processed data from `process_data.py` in the `processed/` folder inside the datataset directory. Place the JSON output from `create_pairs.py` into the `dataset_jsons/` folder.
 
 
 Extract masks using the Segment Anything model of your preference. If using FASTSAM use their [official repository](https://github.com/CASIA-IVA-Lab/FastSAM).
@@ -33,15 +33,14 @@ Extract masks using the Segment Anything model of your preference. If using FAST
 
 Make sure your dataset folder is organized as follows:
 
-```plaintext
+<pre>
 Ego-Exo4d/
 ├── processed/
-│ ├── [processed videos]
-│ ├── ...
-│ └── split.json ← Download from [official source](https://github.com/EGO4D/ego-exo4d-relation/blob/main/correspondence/SegSwap/data/split.json)
+│   ├── [processed videos]
+│   ├── ...
+│   └── <a href="https://github.com/EGO4D/ego-exo4d-relation/blob/main/correspondence/SegSwap/data/split.json">split.json</a>
 ├── takes.json
 ├── dataset_jsons/
-├── [processed videos]
 │ ├── test_egoexo_pairs.json
 │ └── ...
 ├── Masks_TRAIN_EXO2EGO/
@@ -50,7 +49,7 @@ Ego-Exo4d/
 ├── Masks_TEST_EGO2EXO/
 ├── Masks_VAL_EXO2EGO/
 └── Masks_VAL_EGO2EXO/
-```
+</pre>
 
 
 - `processed/`: Contains all the preprocessed videos.
@@ -84,7 +83,7 @@ pip install -r requirements.txt
 Run the following line for the Exo➝Ego evaluation:
 
 ```shell
-python main_eval.py --reverse --root <PATH/TO/DATASET/FOLDER> --devices 0 --checkpoint_dir <PATH/TO/CHECKPOINT>
+python main_eval.py --reverse --root <PATH/TO/DATASET/FOLDER> --devices 0 --checkpoint_dir <PATH/TO/CHECKPOINT> --exp_name Eval_OMAMA
 ```
 
 To run evaluation in the Ego➝Exo direction, simply omit the `--reverse` flag.
@@ -107,10 +106,10 @@ If you have further questions, please contact me [personal email](m.santos@uniza
 ## Cite
 Please, if you are interested, cite our work as follows:
 ```
-@article{mur2025mama,
-  title={O-MaMa@ EgoExo4D Correspondence Challenge: Learning Object Mask Matching between Egocentric and Exocentric Views},
-  author={Mur-Labadia, Lorenzo and Santos-Villafranca, Maria and Perez-Yus, Alejandro and Bermudez-Cameo, Jesus and Martinez-Cantin, Ruben and Guerrero, Jose J},
-  journal={arXiv preprint arXiv:2506.06026},
+@inproceedings{mursantos2025mama,
+  title={O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views},
+  author={Mur-Labadia, Lorenzo and Santos-Villafranca, Maria and Bermudez-Cameo, Jesus and Perez-Yus, Alejandro and Martinez-Cantin, Ruben and Guerrero, Jose J},
+  booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
   year={2025}
 }
 ```
