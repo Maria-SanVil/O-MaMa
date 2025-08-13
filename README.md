@@ -5,7 +5,7 @@
 
 
 ## 🚀 About
-This repository contains the official implementation of the paper *O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views* by [Lorenzo Mur-Labadia](https://sites.google.com/unizar.es/lorenzo-mur-labadia/inicio), [Maria Santos-Villafranca](https://maria-sanvil.github.io/), [Jesus Bermudez-Cameo](https://jesusbermudezcameo.github.io/), [Alejandro Perez-Yus](https://i3a.unizar.es/es/investigadores/alejandro-perez-yus), [Ruben Martinez-Cantin](https://webdiis.unizar.es/~rmcantin/), [Josechu Guerrero](http://webdiis.unizar.es/~jguerrer/).
+This repository contains the official implementation of the paper *O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views* by [Lorenzo Mur-Labadia](https://sites.google.com/unizar.es/lorenzo-mur-labadia/inicio), [Maria Santos-Villafranca](https://maria-sanvil.github.io/), [Jesus Bermudez-Cameo](https://jesusbermudezcameo.github.io/), [Alejandro Perez-Yus](https://i3a.unizar.es/es/investigadores/alejandro-perez-yus), [Ruben Martinez-Cantin](https://webdiis.unizar.es/~rmcantin/), [Jose J. Guerrero](http://webdiis.unizar.es/~jguerrer/).
 
 
 - 🌐 [Official Webpage](https://maria-sanvil.github.io/O-MaMa/)
