@@ -4,10 +4,15 @@
 ## 🏆 1st Place Winner in the Ego-Exo4D Correspondence Challenge at the Second Joint Egocentric Vision (EgoVis) Workshop @ CVPR 2025!! 🏆
 
 
-## About
+## 🚀 About
 This repository contains the official implementation of the paper *O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views* by [Lorenzo Mur-Labadia](https://sites.google.com/unizar.es/lorenzo-mur-labadia/inicio), [Maria Santos-Villafranca](https://maria-sanvil.github.io/), [Jesus Bermudez-Cameo](https://jesusbermudezcameo.github.io/), [Alejandro Perez-Yus](https://i3a.unizar.es/es/investigadores/alejandro-perez-yus), [Ruben Martinez-Cantin](https://webdiis.unizar.es/~rmcantin/), [Josechu Guerrero](http://webdiis.unizar.es/~jguerrer/).
 
-📃📃 [Technical Report](https://arxiv.org/pdf/2506.06026)📃📃
+
+- 🌐 [Official Webpage](https://maria-sanvil.github.io/O-MaMa/)
+- 📝 [Technical Report](https://arxiv.org/pdf/2506.06026)
+<!-- - 📃 [Paper](https://arxiv.org/pdf/2506.06026) – Read the paper! -->
+
+
 
 <p align="center">
   <img src="assets/teaser.png" alt="Teaser" width="500"/>
