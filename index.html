@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="description" content="O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views.">
+        <meta name="keywords" content="Egocentric Vision, Ego-Exo Understanding, Cross-View Segmentation">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>O-MaMa</title>
+
+        <link rel="stylesheet" href="./static/css/bulma.min.css">
+        <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+        <link rel="stylesheet" href="./static/css/index.css">
+        <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script src="./static/js/index.js" defer></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+        </script>
+
+        <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    </head>
+
+    <body>
+        <section class="hero">
+            <div class="hero-body">
+                <div class="container is-max-desktop">
+                    <div class="columns is-centered">
+                        <div class="column has-text-centered">
+                            <h1 class="title is-1 publication-title">
+                                O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views
+                            </h1>
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block"><a href="https://sites.google.com/unizar.es/lorenzo-mur-labadia/inicio">Lorenzo Mur-Labadia</a><sup>*</sup>,</span>
+                                <span class="author-block"><a href="https://maria-sanvil.github.io/">Maria Santos-Villafranca</a><sup>*</sup>,</span>
+                                <span class="author-block"><a href="https://jesusbermudezcameo.github.io/">Jesus Bermudez-Cameo</a><sup></sup>,</span>
+                                <span class="author-block"><a href="https://i3a.unizar.es/es/investigadores/alejandro-perez-yus">Alejandro Perez-Yus</a><sup></sup>,</span>
+                                <span class="author-block"><a href="https://webdiis.unizar.es/~rmcantin/">Ruben Martinez-Cantin</a><sup></sup>,</span>
+                                <span class="author-block"><a href="https://webdiis.unizar.es/~jguerrer/">Jose J. Guerrero</a><sup></sup>,</span>
+                            </div>
+
+                            <div class="is-size-5 publication-authors">
+                                <span class="author-block"><sup></sup>University of Zaragoza-I3A</span>
+                            </div>
+
+                            <div class="columns is-centered has-text-centered">
+                                <div class="column is-full">
+                                    <p class="equal-contribution">
+                                        * Equal contribution.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="column has-text-centered">
+                                <div class="publication-links">
+                                    <span class="link-block">
+                                        <a href="https://arxiv.org/pdf/2506.06026" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="ai ai-arxiv"></i>
+                                            </span>
+                                            <span>Technical Report</span>
+                                        </a>
+                                    </span>
+                                    <span class="link-block">
+                                        <a href="https://github.com/Maria-SanVil/O-MaMa" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fab fa-github"></i>
+                                            </span>
+                                            <span>Code</span>
+                                        </a>
+                                    </span>
+                                    <span class="link-block">
+                                        <a href="https://maria-sanvil.github.io/O-MaMa/" class="external-link button is-normal is-rounded is-dark">
+                                            <span class="icon">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </span>
+                                            <span>Paper (Coming soon)</span>
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container is-max-desktop">
+                <!-- TL;DR. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">TL;DR 🚀</h2>
+                        <hr class="tldr-line"> <!-- Bottom horizontal line -->
+                        <div class="content has-text-justified">
+                            <p class="bottom-space-big">
+                                We propose O-MaMa, a new approach that re-defines cross-image segmentation by treating it as a mask matching task.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--/ TL;DR. -->
+
+                <!-- Abstract. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">Abstract</h2>
+                        <hr class="tldr-line"> <!-- Bottom horizontal line -->
+                        <div class="image-item">
+                            <img src="./assets/teaser.png" alt="O-MaMa overview" class="responsive-img img-85" style="width:60%;" />
+                            <p class="caption bottom-space-small">
+                                <b>Overview of our proposed Object Mask Matching (O-MaMa).</b> Instead of attempting the complex cross-view segmentation task, we obtain a set of mask candidates in the destination view using FastSAM. Through contrastive learning, we select the mask candidate that best matches the source mask.
+                            </p>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p class="bottom-space-big">
+                                Understanding the world from multiple perspectives is essential for intelligent systems operating together, where segmenting common objects across different views remains an open problem. We introduce a new approach that re-defines cross-image segmentation by treating it as a mask matching task. Our method consists of: (1) A Mask-Context Encoder that pools dense DINOv2 semantic features to obtain discriminative object-level representations from FastSAM mask candidates, (2) a Ego↔Exo Cross-Attention that fuses multi-perspective observations, (3) a Mask Matching contrastive loss that aligns cross-view features in a shared latent space and, (4) a Hard Negative Adjacent Mining strategy to encourage the model to better differentiate between nearby objects. O-MaMa achieves the state of the art in the Ego-Exo4D Correspondences benchmark.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Abstract. -->
+
+                <!-- Method. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">Method</h2>
+                        <hr class="tldr-line"> <!-- Bottom horizontal line -->
+                        <div class="column is-full has-text-centered">
+                            <div class="image-item">
+                                <img src="./assets/method.png" alt="Diagram" class="responsive-img img-85"/>
+                                <p class="caption bottom-space-small">
+                                    <b>O-MaMa architecture.</b>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p>
+                                In the destination view, we generate a set of mask candidates using FastSAM. We extract descriptors on both source and destination masks by pooling dense DINOv2 features, and we aggregate global cross-view features with respective cross-attention mechanisms. We learn view-invariant features in a latent space via contrastive learning, and we select the most similar mask embedding to obtain the corresponding mask.
+                            </p>
+                        </div>
+                        <div class="column is-full has-text-centered">
+                            <div class="image-container">
+                                <div class="image-item">
+                                    <img src="assets/ego_hard_mining.png" alt="Ego Hard Negative">
+                                </div>
+                                <div class="image-item">
+                                    <img src="assets/exo_hard_mining.png" alt="Exo Hard Negative">
+                                </div>
+                            </div>
+                            <p class="caption bottom-space-small">
+                                <b>Hard Negatives mining examples.</b> We visualize 2<sup>nd</sup> order adjacent neighbors both in ego (left) and exo (right) scenarios.
+                            </p>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p class="bottom-space-big">
+                                While the object embedding contains very discriminative object features, the context embedding incorporates surrounding information to help localizing the object in the other view, but this surrounding context also introduces ambiguity in cluttered environments, where nearby objects share a similar context. To address this, we introduce a hard-negative mining strategy based on adjacent neighbors, encouraging the model to disambiguate between nearby but distinct objects with similar context. In the destination view, we construct a graph of mask segments based on the pixel centers of each mask using the Delaunay Triangulation to select hard negative neightbors.
+                            </p>
+                        </div>
+                        <div class="column is-full has-text-centered">
+                            <div class="image-item">
+                                <img src="./assets/attn_maps.png" alt="Attention Maps" class="responsive-img img-85"/>
+                                <p class="caption bottom-space-small">
+                                    <b>Ego<em>↔</em>Exo Cross-Attention Maps</b>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p>
+                                Although the mask context embedding incorporates surrounding contextual information, it lacks a global representation across views. Therefore, we introduce a Ego<em>↔</em>Exo Cross-Attention mechanism, which enhances the object embedding by extracting its corresponding semantic features in the other view.
+                            </p>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p>
+                                Our contrastive loss is based on InfoNCE. We select a batch of \( |\mathcal{B}| \) elements, one positive and \(|\mathcal{B}|-1\) negatives from the list of closest neighbors around the target object in the other view. 
+                                Finally, we apply the pairwise cosine similarity:
+
+                                <div class="math-responsive">
+
+                                    \[
+                                      \mathcal{L}_{M}(\rho^+, \rho_{S}) =
+                                      - \log \frac{\exp(\text{sim}(f_\theta (\rho^+), f_\theta (\rho_{S}))/\tau)}{
+                                      \sum^{|\mathcal{B}|}_{n=1} \exp(\text{sim}(f_\theta(\rho_{n}), f_\theta(\rho_{S}))/\tau)}
+                                    \]
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Method. -->
+
+                <!-- Results. -->
+                <div class="columns is-centered has-text-centered">
+                    <div class="column is-four-fifths">
+                        <h2 class="title is-3">Results</h2>
+                        <hr class="tldr-line"> <!-- Bottom horizontal line -->
+                        <div class="content has-text-justified">
+                            <p>
+                                We evaluate our model O-MaMa the Ego-Exo4D Correspondences v2 test set, demonstrating the our approach's effectiveness.
+                            </p>
+                        </div>
+                        <h3 class="title is-4 left">Comparison with the State of the Art</h3>
+                        <div class="content has-text-justified">
+                            <p>
+                                We compare O-MaMa  against other segmentation models, official baselines, and k-NN, a naïve version of our approach. We extract descriptors of the generated
+                                mask candidates in the destination view, and we select the most similar to the query mask in the source view.
+                            </p>
+                        </div>
+                        <div class="column is-full has-text-centered">
+                            <img src="/assets/SOTA_comparison.png" alt="Table of results 1" class="responsive-img img-100 img-inline" />
+                            <p class="caption bottom-space-small">
+                                <b>Results on the Ego-Exo4D Correspondences v2 test split.</b>
+                            </p>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p>
+                                Even our simplest version, the k-NN baseline, already surpasses the official XMem+XSegTx, achieving 31.9 IoU in Ego2Exo and 30.9 IoU in Exo2Ego tasks. Our full method, O-MaMa, further improves performance, reaching 42.6 Ego2Exo and 44.1 Exo2Ego IoU, representing considerable relative gains of up to +22.1% and +76.4% over XMem+XSegTx.
+                            </p>
+                        </div>
+                        <h3 class="title is-4 left">Ablation Study</h3>
+                        <div class="content has-text-justified">
+                            <p>
+                                We perform some ablation studies of the contribution of each component and of diverse mask descriptors.
+                            </p>
+                        </div>
+                        <div class="column is-full has-text-centered">
+                            <div class="image-item">
+                                <img src="./assets/Ablation_architecture.png" alt="Ablation architecture" class="responsive-img img-100"/>
+                                <p class="caption bottom-space-small">
+                                    <b>Ablation study on the O-MaMa proposed modules on the 10% of the validation set.</b>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="content has-text-justified">
+                            <p>
+                               The joined effect of all our proposed modules specially improvesall the metrics, which yields a final gain of +37.2% Ego2Exo and +42.1% Exo2Ego IoU. This demonstrates that, while the k-NN baseline is agnostic to the candidate mask location (it just selects the most similar match), our proposed integration of local and global information results in an object mask selection more sensitive to the cross-view relationship.
+                            </p>
+                        </div>
+                        <h3 class="title is-4 left">Qualitative Results</h3>
+                        <div class="column is-full has-text-centered">
+                            <div class="image-container">
+                                <div class="image-item">
+                                    <img src="assets/EgoExo_qualit.png" alt="EgoExo Qualitative">
+                                </div>
+                                <div class="image-item">
+                                    <img src="assets/ExoEgo_qualit.png" alt="ExoEgo Qualitative">
+                                </div>
+                            </div>
+                            <p class="caption bottom-space-small">
+                                <b>Qualitative Results.</b> We show the source mask in <span>\(\textcolor{blue}{\text{blue}}\)</span> and the top 3 target masks in <span>\(\textcolor{green}{\text{green}}\)</span>, <span>\(\textcolor{yellow}{\text{yellow}}\)</span> and <span>\(\textcolor{orange}{\text{orange}}\)</span>.
+                            </p>
+                        </div>
+                        <div class="video-carousel" id="carousel1">
+                            <button class="nav prev">&#10094;</button>
+                            <div class="video-wrapper">
+                              <video class="active" autoplay controls muted loop playsinline>
+                                <source src="assets/basketball.mp4" type="video/mp4" />
+                              </video>
+                              <video autoplay controls muted loop playsinline>
+                                <source src="assets/wooden_knife_holder.mp4" type="video/mp4" />
+                              </video>
+                            </div>
+                            <button class="nav next">&#10095;</button>
+                        </div>
+                        <div class="video-carousel" id="carousel2">
+                            <button class="nav prev">&#10094;</button>
+                            <div class="video-wrapper">
+                              <video class="active" autoplay controls muted loop playsinline>
+                                <source src="assets/noodles.mp4" type="video/mp4" />
+                              </video>
+                              <video autoplay controls muted loop playsinline>
+                                <source src="assets/carrot.mp4" type="video/mp4" />
+                              </video>
+                            </div>
+                            <button class="nav next">&#10095;</button>
+                        </div>
+                    </div>
+                </div>
+                <!--/ Results. -->
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container is-max-desktop content">
+                <h3 class="title is-3 left">BibTeX</h3>
+                <pre><code>
+                    @inproceedings{mursantos2025mama,
+                        title={O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views},
+                        author={Mur-Labadia, Lorenzo and Santos-Villafranca, Maria and Bermudez-Cameo, Jesus and Perez-Yus, Alejandro and Martinez-Cantin, Ruben and Guerrero, Jose J},
+                        booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
+                        year={2025}
+                      }
+                </code></pre>
+            </div>
+        </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+              function initCarousel(carouselId) {
+                const carousel = document.getElementById(carouselId);
+                const videos = carousel.querySelectorAll('video');
+                const prevBtn = carousel.querySelector('.nav.prev');
+                const nextBtn = carousel.querySelector('.nav.next');
+                let current = 0;
+          
+                function showVideo(index) {
+                    videos.forEach((vid, i) => {
+                        if (i === index) {
+                        vid.classList.add('active');
+                        vid.style.display = 'block';
+                        vid.currentTime = 0;
+                        vid.play();
+                        } else {
+                        vid.classList.remove('active');
+                        vid.style.display = 'none';
+                        vid.pause();
+                        vid.currentTime = 0;
+                        }
+                    });
+}
+
+          
+                prevBtn.addEventListener('click', () => {
+                  current = (current - 1 + videos.length) % videos.length;
+                  showVideo(current);
+                });
+          
+                nextBtn.addEventListener('click', () => {
+                  current = (current + 1) % videos.length;
+                  showVideo(current);
+                });
+          
+                showVideo(current);
+              }
+          
+              initCarousel('carousel1');
+              initCarousel('carousel2');
+            });
+          </script>
+          
+
+        <footer>
+            <div class="container">
+                <div class="columns is-centered">
+                    <div class="column is-8">
+                        <div class="content has-text-centered">
+                            <p>
+                                The website template is borrowed from the awesome <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> website.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
