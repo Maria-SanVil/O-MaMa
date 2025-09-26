@@ -9,8 +9,8 @@ This repository contains the official implementation of the paper *O-MaMa: Learn
 
 
 - 🌐 [Official Webpage](https://maria-sanvil.github.io/O-MaMa/)
-- 📝 [Technical Report](https://arxiv.org/pdf/2506.06026)
-<!-- - 📃 [Paper](https://arxiv.org/pdf/2506.06026) – Read the paper! -->
+- 📝 [Technical Report](https://arxiv.org/pdf/2506.06026v1)
+- 📃 [Paper](https://arxiv.org/pdf/2506.06026) – Read the paper!
 
 
 
@@ -21,9 +21,6 @@ This repository contains the official implementation of the paper *O-MaMa: Learn
 
 Understanding the world from multiple perspectives is essential for intelligent systems operating together, where segmenting common objects across different views remains an open problem. We introduce a new approach that re-defines cross-image segmentation by treating it as a mask matching task. Our method consists of: (1) A Mask-Context Encoder that pools dense DINOv2 semantic features to obtain discriminative object-level representations from FastSAM mask candidates, (2) a Ego↔Exo Cross-Attention that fuses multi-perspective observations, (3) a Mask Matching contrastive loss that aligns cross-view features in a shared latent space and, (4) a Hard Negative Adjacent Mining strategy to encourage the model to better differentiate between nearby objects. O-MaMa achieves the state of the art in the Ego-Exo4D Correspondences benchmark.
 
-## 📝 TODO
-
-- [ ] Add link to published paper
 
 ## 📁 Dataset
 
