@@ -11,6 +11,7 @@ This repository contains the official implementation of the paper *O-MaMa: Learn
 - 🌐 [Official Webpage](https://maria-sanvil.github.io/O-MaMa/)
 - 📝 [Technical Report](https://arxiv.org/pdf/2506.06026v1)
 - 📃 [Paper](https://arxiv.org/pdf/2506.06026) – Read the paper!
+- 🎥 [Video Presentation](https://www.youtube.com/watch?v=JRwx3oCerm4)
 
 
 
