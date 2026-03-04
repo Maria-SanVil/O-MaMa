@@ -129,7 +129,7 @@ If you have further questions, please contact me [personal email](m.santos@uniza
 Please, if you are interested, cite our work as follows:
 ```
 @inproceedings{mursantos2025mama,
-  title={O-MaMa: Learning Object Mask Matching between Egocentric and Exocentric Views},
+  title={O-{MaMa}: Learning Object Mask Matching between Egocentric and Exocentric Views},
   author={Mur-Labadia, Lorenzo and Santos-Villafranca, Maria and Bermudez-Cameo, Jesus and Perez-Yus, Alejandro and Martinez-Cantin, Ruben and Guerrero, Jose J},
   booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision},
   year={2025}
